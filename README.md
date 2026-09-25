@@ -2,7 +2,7 @@
 
 This standalone Streamlit repository implements the **frozen seven-predictor XGBoost model** from the Hospital 5 development cohort. It estimates the probability of the study-defined recurrent lumbar disc herniation (RLDH) outcome within two years after index percutaneous endoscopic lumbar discectomy (PELD). It is for research and education, not diagnosis or treatment selection.
 
-**Deployment status:** research preview. No public Streamlit URL or GitHub release is claimed until deployment and cloud tests have been verified.
+**Deployment status:** public research preview at [peld-rldh-ml-calculator-2026.streamlit.app](https://peld-rldh-ml-calculator-2026.streamlit.app/). The app was deployed from this repository's `main` branch on 2026-09-25 and its startup and example prediction were verified. It is not approved for clinical use.
 
 ## Model and evidence
 
@@ -36,4 +36,4 @@ See `docs/model_card.md`, `docs/predictor_definitions.md`, and `docs/validation_
 
 ## Deployment
 
-Once this repository is published, deploy `streamlit_app.py` from branch `main` on Streamlit Community Cloud and select Python 3.10. Verify the cloud deployment by repeating the synthetic reference checks before sharing the app link. A version 1.0.0 release, DOI, manuscript screenshot, and citation should be made only after repository ownership, license, and final wording are confirmed.
+The public app runs `streamlit_app.py` from branch `main` on Streamlit Community Cloud with Python 3.10. On 2026-09-25, the cloud build installed the pinned dependencies, the app loaded without a startup error, and the default demonstration inputs returned 9.0%, agreeing with the frozen local model probability of 0.090273 after display rounding. GitHub Actions also passed the deterministic prediction and explanation tests. See `docs/deployment_verification.md` for the verification record. A version 1.0.0 release, DOI, manuscript screenshot, and citation should be made only after final wording and release readiness are confirmed.
