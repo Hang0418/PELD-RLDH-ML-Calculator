@@ -1,0 +1,8 @@
+{
+  "synthetic_cases": 20,
+  "maximum_absolute_difference": 0.0,
+  "tolerance": 1e-06,
+  "source_model_sha256": "99aca28706baeecff16019e19a69a56a4978b800ea970dbfd52789aee909e4c9",
+  "native_model_sha256": "d946185842c2c22893a7f5ca09de68df459a107d6ee81d5a83c40fcd6044916c",
+  "patient_rows_exported": 0
+}

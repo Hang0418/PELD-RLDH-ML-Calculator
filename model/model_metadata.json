@@ -1,0 +1,100 @@
+{
+  "version": "0.1.0-research-preview",
+  "frozen_training_seed": 20260920,
+  "source_model_sha256": "99aca28706baeecff16019e19a69a56a4978b800ea970dbfd52789aee909e4c9",
+  "development_source_sha256": "85864507e73bae0b9aa300772c505563baf07818d49b55f019c08099917560cb",
+  "native_model_sha256": "d946185842c2c22893a7f5ca09de68df459a107d6ee81d5a83c40fcd6044916c",
+  "features": [
+    "Age",
+    "BMI",
+    "sROM/degrees",
+    "Cross_sectional_area/cm^2",
+    "Sacral_slope/degrees",
+    "Pfirrmann_group",
+    "Modic_group"
+  ],
+  "numeric_features": [
+    "Age",
+    "BMI",
+    "sROM/degrees",
+    "Cross_sectional_area/cm^2",
+    "Sacral_slope/degrees"
+  ],
+  "categorical_features": [
+    "Pfirrmann_group",
+    "Modic_group"
+  ],
+  "numeric_mean": {
+    "Age": 43.3235294117647,
+    "BMI": 23.287941176470586,
+    "sROM/degrees": 7.478151260504202,
+    "Cross_sectional_area/cm^2": 10.393332773109243,
+    "Sacral_slope/degrees": 27.61181512605042
+  },
+  "numeric_scale": {
+    "Age": 14.774109797763176,
+    "BMI": 2.8022640090419255,
+    "sROM/degrees": 4.275092208231884,
+    "Cross_sectional_area/cm^2": 3.1491382764527884,
+    "Sacral_slope/degrees": 5.481690477109231
+  },
+  "development_ranges": {
+    "Age": [
+      12.0,
+      87.0
+    ],
+    "BMI": [
+      16.2,
+      34.5
+    ],
+    "sROM/degrees": [
+      1.0,
+      35.0
+    ],
+    "Cross_sectional_area/cm^2": [
+      2.37,
+      23.032
+    ],
+    "Sacral_slope/degrees": [
+      16.36,
+      48.83
+    ]
+  },
+  "category_levels": {
+    "Pfirrmann_group": [
+      "III–IV",
+      "I–II",
+      "V"
+    ],
+    "Modic_group": [
+      "I",
+      "II–III",
+      "无"
+    ]
+  },
+  "encoded_features": [
+    "Age",
+    "BMI",
+    "sROM/degrees",
+    "Cross_sectional_area/cm^2",
+    "Sacral_slope/degrees",
+    "Pfirrmann_group_I–II",
+    "Pfirrmann_group_V",
+    "Modic_group_II–III",
+    "Modic_group_无"
+  ],
+  "encoded_sources": [
+    "Age",
+    "BMI",
+    "sROM/degrees",
+    "Cross_sectional_area/cm^2",
+    "Sacral_slope/degrees",
+    "Pfirrmann_group",
+    "Pfirrmann_group",
+    "Modic_group",
+    "Modic_group"
+  ],
+  "stated_outcome_horizon_years": 2,
+  "patient_level_follow_up_verified_from_workbooks": false,
+  "synthetic_reference_cases_only": true
+}
