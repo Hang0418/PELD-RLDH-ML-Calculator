@@ -6,15 +6,15 @@ Research-only estimation of study-defined RLDH within two years after index PELD
 
 ## Development and validation
 
-Hospital 5 development: 1,190 participants, 117 recorded events. Independent Hospital 6 evaluation: 288 participants, 36 events. The seven variables were selected from 16 candidates using a 100-bootstrap LASSO/Boruta consensus rule. XGBoost was selected using Hospital 5 nested out-of-fold evidence and frozen before Hospital 6 evaluation.
+Development hospital cohort: 1,190 participants, 117 recorded events. Validation hospital cohort: 288 participants, 36 events. The seven variables were selected from 16 candidates using a 100-bootstrap LASSO/Boruta consensus rule. XGBoost was selected using nested out-of-fold evidence from the development hospital cohort and frozen before independent evaluation in the validation hospital cohort.
 
 ## Inputs and output
 
-The inputs are the seven source-model fields in `model/model_metadata.json`. The output is an uncalibrated-against-Hospital-6 model probability, not a diagnostic classification or treatment threshold. Numeric preprocessing uses frozen training means and scales; categorical preprocessing uses frozen level order with the first level dropped.
+The inputs are the seven source-model fields in `model/model_metadata.json`. The output is a model probability that has not been recalibrated against the validation hospital cohort, not a diagnostic classification or treatment threshold. Numeric preprocessing uses frozen training means and scales; categorical preprocessing uses frozen level order with the first level dropped.
 
 ## Performance
 
-Hospital 5 outer-fold out-of-fold AUROC 0.904, AUPRC 0.755, Brier 0.0372, calibration slope 1.051, O/E 1.006. Hospital 6 AUROC 0.847 (95% CI 0.758–0.928), AUPRC 0.640 (0.487–0.782), Brier 0.0772 (0.0532–0.1016), calibration-in-the-large −0.334, slope 0.709, and O/E 0.866. External probability calibration was weaker, so results are research estimates.
+Development hospital cohort outer-fold out-of-fold AUROC 0.904, AUPRC 0.755, Brier 0.0372, calibration slope 1.051, O/E 1.006. Validation hospital cohort AUROC 0.847 (95% CI 0.758–0.928), AUPRC 0.640 (0.487–0.782), Brier 0.0772 (0.0532–0.1016), calibration-in-the-large −0.334, slope 0.709, and O/E 0.866. External probability calibration was weaker, so results are research estimates.
 
 ## Interpretation
 

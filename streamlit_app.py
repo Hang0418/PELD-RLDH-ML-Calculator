@@ -14,7 +14,7 @@ st.title("PELD RLDH Research Calculator")
 st.caption("Research estimate of RLDH within 2 years after the index PELD procedure")
 st.warning(
     "Research use only. External discrimination was encouraging, but probability "
-    "calibration changed at the independent hospital. This is not a clinical decision tool."
+    "calibration changed in the validation hospital cohort. This is not a clinical decision tool."
 )
 
 meta = metadata()
@@ -60,7 +60,7 @@ with right:
             st.progress(probability)
             st.info(
                 "Interpret as a research estimate, not a treatment threshold. "
-                "In Hospital 6, the calibration slope was 0.709 and O/E was 0.866. "
+                "In the validation hospital cohort, the calibration slope was 0.709 and O/E was 0.866. "
                 "No low-, medium-, or high-risk cutoff was prespecified."
             )
             st.subheader("Factors contributing to this prediction")
@@ -87,8 +87,8 @@ with right:
 
 with st.expander("About this model"):
     st.write(
-        "Hospital 5 development: 1,190 patients and 117 recorded recurrences. "
-        "Independent Hospital 6 evaluation: 288 patients and 36 recorded recurrences. "
+        "Development hospital cohort: 1,190 patients and 117 recorded recurrences. "
+        "Validation hospital cohort: 288 patients and 36 recorded recurrences. "
         "External AUROC 0.847, AUPRC 0.640, Brier 0.0772, calibration slope 0.709."
     )
     st.write(f"Frozen source model SHA-256: `{meta['source_model_sha256']}`")

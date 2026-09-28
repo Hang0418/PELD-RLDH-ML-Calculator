@@ -1,12 +1,12 @@
 # PELD RLDH Research Calculator
 
-This standalone Streamlit repository implements the **frozen seven-predictor XGBoost model** from the Hospital 5 development cohort. It estimates the probability of the study-defined recurrent lumbar disc herniation (RLDH) outcome within two years after index percutaneous endoscopic lumbar discectomy (PELD). It is for research and education, not diagnosis or treatment selection.
+This standalone Streamlit repository implements the **frozen seven-predictor XGBoost model** from the development hospital cohort. It estimates the probability of the study-defined recurrent lumbar disc herniation (RLDH) outcome within two years after index percutaneous endoscopic lumbar discectomy (PELD). It is for research and education, not diagnosis or treatment selection.
 
 **Deployment status:** public research preview at [peld-rldh-ml-calculator-2026.streamlit.app](https://peld-rldh-ml-calculator-2026.streamlit.app/). The app was deployed from this repository's `main` branch on 2026-09-25 and its startup and example prediction were verified. It is not approved for clinical use.
 
 ## Model and evidence
 
-The model accepts age, BMI, segmental range of motion, bilateral mean L4–5 multifidus cross-sectional area, sacral slope, Pfirrmann group, and Modic group. It uses the exact frozen numeric scaling and category ordering. Hospital 5 supplied 1,190 development patients and 117 events. Hospital 6 supplied 288 independent validation patients and 36 events. External AUROC was 0.847, AUPRC 0.640, Brier score 0.0772, calibration slope 0.709, and O/E 0.866. These findings do not establish deployment-ready probability calibration.
+The model accepts age, BMI, segmental range of motion, bilateral mean L4–5 multifidus cross-sectional area, sacral slope, Pfirrmann group, and Modic group. It uses the exact frozen numeric scaling and category ordering. The development hospital cohort comprised 1,190 patients and 117 events. The validation hospital cohort comprised 288 patients and 36 events and was used for independent validation. External AUROC was 0.847, AUPRC 0.640, Brier score 0.0772, calibration slope 0.709, and O/E 0.866. These findings do not establish deployment-ready probability calibration.
 
 The stated outcome is MRI-confirmed herniation at the operated level, ipsilateral or contralateral, after at least one pain-free month and occurring within two years. This definition was supplied by the study team; patient-level follow-up completeness and adjudication fields are not present in the public package or supplied workbooks.
 
