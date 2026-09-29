@@ -72,7 +72,7 @@ def main() -> None:
     model_target.parent.mkdir(parents=True, exist_ok=True)
     estimator.save_model(model_target)
     metadata = {
-        "version": "0.1.0-research-preview",
+        "version": "1.0.0",
         "frozen_training_seed": lock["seed"],
         "source_model_sha256": lock["model_sha256"],
         "development_source_sha256": lock["h5_source_sha256"],

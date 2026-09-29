@@ -20,6 +20,7 @@ def cases() -> pd.DataFrame:
 
 
 def test_exported_model_reproduces_frozen_pipeline_references() -> None:
+    assert metadata()["version"] == "1.0.0"
     frame = cases()
     assert len(frame) == 20
     assert list(frame.columns) == metadata()["features"] + ["expected_probability"]

@@ -18,8 +18,8 @@ Development hospital cohort outer-fold out-of-fold AUROC 0.904, AUPRC 0.755, Bri
 
 ## Interpretation
 
-Local probability-scale SHAP uses a synthetic, aggregate-derived background to avoid publishing patient rows. It reconstructs each application prediction but does not share the manuscript's patient-sample SHAP baseline. SHAP contributions describe model behavior and are not causal effects.
+The web app implements the same frozen prediction model and preprocessing as the externally validated model. Its probability-scale permutation SHAP uses a synthetic, aggregate-derived background to avoid publishing patient rows. It reconstructs each application prediction, but its reference baseline differs from the manuscript's patient-sample SHAP analysis. SHAP contributions describe model behavior, not causal effects.
 
 ## Known limitations
 
-The public package does not contain source records or patient-level follow-up completeness fields. Independent validation involved one additional hospital and 36 events. The tool has not undergone prospective impact evaluation, software-as-medical-device assessment, or clinical deployment validation.
+Patient-level source data are not included in the public software package; cohort eligibility, follow-up completeness, and outcome adjudication cannot be independently reconstructed from it. Independent validation involved one additional hospital and 36 events. The tool has not undergone prospective impact evaluation, software-as-medical-device assessment, or clinical deployment validation.

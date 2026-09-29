@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0-research-preview",
+  "version": "1.0.0",
   "frozen_training_seed": 20260920,
   "source_model_sha256": "99aca28706baeecff16019e19a69a56a4978b800ea970dbfd52789aee909e4c9",
   "development_source_sha256": "85864507e73bae0b9aa300772c505563baf07818d49b55f019c08099917560cb",

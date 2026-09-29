@@ -1,6 +1,13 @@
 Copyright (c) 2026. All rights reserved.
 
-This research-preview repository is publicly viewable but is not released under
-an open-source reuse license. Permission to copy, modify, or redistribute the
-code or model weights must be obtained from the rights holder. The author may
-replace this notice with a chosen license before a formal release.
+This repository accompanies a research manuscript and is publicly available
+for transparency and reproducibility. It is not released under an open-source
+license.
+
+Permission is granted to view, download, and run the code and frozen model
+weights solely for non-commercial academic evaluation of the accompanying
+research. Redistribution, modification, commercial use, or incorporation into
+clinical software requires prior written permission from the rights holder.
+
+The software is for research use only and is not intended for clinical
+decision-making.
