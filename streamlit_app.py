@@ -11,10 +11,10 @@ from src.prediction import canonicalize, metadata, predict_probability
 
 st.set_page_config(page_title="PELD RLDH Research Calculator", layout="wide")
 st.title("PELD RLDH Research Calculator")
-st.caption("Research estimate of RLDH within 2 years after the index PELD procedure")
+st.caption("Unrecalibrated model estimate of recurrent lumbar disc herniation within 2 years after PELD")
 st.warning(
-    "Research use only. External discrimination was encouraging, but probability "
-    "calibration changed in the validation hospital cohort. This is not a clinical decision tool."
+    "Research use only. Validation hospital cohort calibration slope: 0.709. "
+    "Do not use this estimate to make clinical decisions."
 )
 
 meta = metadata()
@@ -59,11 +59,10 @@ with right:
             st.metric("Estimated 2-year RLDH probability", f"{probability:.1%}")
             st.progress(probability)
             st.info(
-                "Interpret as a research estimate, not a treatment threshold. "
-                "In the validation hospital cohort, the calibration slope was 0.709 and O/E was 0.866. "
-                "No low-, medium-, or high-risk cutoff was prespecified."
+                "This probability was not recalibrated for the validation hospital cohort "
+                "(O/E 0.866). No clinical decision threshold was validated."
             )
-            st.subheader("Factors contributing to this prediction")
+            st.subheader("Model contributions (SHAP)")
             names = {
                 "Age": "Age", "BMI": "BMI", "sROM/degrees": "Segmental ROM",
                 "Cross_sectional_area/cm^2": "Multifidus CSA",
@@ -76,10 +75,9 @@ with right:
             ).set_index("Predictor").sort_values("Probability contribution")
             st.bar_chart(frame, horizontal=True, color="#0072B2")
             st.caption(
-                f"Synthetic-background reference probability: "
-                f"{explanation['base_probability']:.1%}. Contributions sum to the displayed "
-                "probability; their baseline differs from the manuscript's patient-sample SHAP baseline. "
-                "SHAP describes model behavior, not causal effects."
+                f"Synthetic-background reference: {explanation['base_probability']:.1%}. "
+                "Contributions sum to the prediction; this reference differs from the "
+                "manuscript's patient-sample SHAP baseline. Contributions are not causal effects."
             )
     else:
         st.subheader("Model prediction")
@@ -87,23 +85,29 @@ with right:
 
 with st.expander("About this model"):
     st.write(
-        "Development hospital cohort: 1,190 patients and 117 recorded recurrences. "
-        "Validation hospital cohort: 288 patients and 36 recorded recurrences. "
-        "External AUROC 0.847, AUPRC 0.640, Brier 0.0772, calibration slope 0.709."
+        "Development hospital cohort: 1,190 participants, 117 events. "
+        "Validation hospital cohort: 288 participants, 36 events. "
+        "Validation AUROC 0.847, AUPRC 0.640, Brier score 0.0772, "
+        "calibration slope 0.709, O/E 0.866."
     )
     st.write(f"Frozen source model SHA-256: `{meta['source_model_sha256']}`")
-with st.expander("Predictor definitions and limitations"):
+with st.expander("Outcome and predictor definitions"):
     st.write(
-        "Inputs must follow the source study's measurement and coding methods. "
-        "The study methods define CSA as bilateral multifidus area at L4–5, measured in ImageJ "
-        "and averaged. The stated primary outcome is MRI-confirmed herniation at the operated "
-        "level within two years, after at least one pain-free month. The supplied workbooks do "
-        "not themselves document patient-level follow-up completeness. "
-        "See the repository's predictor definitions and model card before interpreting results."
+        "RLDH: MRI-confirmed herniation at the operated level, ipsilateral or "
+        "contralateral, within 2 years after PELD and after ≥1 pain-free month. "
+        "Segmental range of motion uses standing flexion–extension radiographs; "
+        "multifidus CSA is the bilateral L4–5 ImageJ mean; sacral slope is the angle "
+        "between the sacral endplate and horizontal."
+    )
+    st.markdown(
+        "[Predictor coding](https://github.com/Hang0418/PELD-RLDH-ML-Calculator/"
+        "blob/main/docs/predictor_definitions.md) · "
+        "[Model card](https://github.com/Hang0418/PELD-RLDH-ML-Calculator/"
+        "blob/main/docs/model_card.md)"
     )
 st.divider()
 st.caption(
-    "Research and education only. Not a medical device; do not use as the sole basis for "
-    "diagnosis, treatment selection, or clinical decisions. This app code has no patient database "
-    "and does not write entered values to disk. The hosting platform may maintain operational logs."
+    "No patient database or input persistence is implemented in this app. "
+    "Do not enter identifying information. "
+    "[Source code and methods](https://github.com/Hang0418/PELD-RLDH-ML-Calculator)."
 )
